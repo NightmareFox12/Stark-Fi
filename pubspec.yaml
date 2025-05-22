@@ -13,6 +13,8 @@ dependencies:
   starknet_provider: ^0.1.1+2
   starknet: ^0.1.2+1
   flutter_hooks: ^0.21.2
+  shared_preferences: ^2.5.3
+  shared_preferences_android: ^2.4.10
 
 dev_dependencies:
   flutter_test:
