@@ -10,21 +10,21 @@ class StarkFiTheme {
     isDark = isDarkMode(context);
 
     primaryColor = isDarkMode(context)
-        ? StarkFiDark().primaryColor
-        : StarkFiLight().primaryColor;
+        ? StarkFiDark.primaryColor
+        : StarkFiLight.primaryColor;
 
     contentColor = isDarkMode(context)
-        ? StarkFiDark().contentColor
-        : StarkFiLight().contentColor;
+        ? StarkFiDark.contentColor
+        : StarkFiLight.contentColor;
   }
 }
 
 class StarkFiLight {
-  final Color primaryColor = Color(0xFF007AFF);
-  final Color contentColor = Color(0xFF000000);
+  static final Color primaryColor = Color(0xFF007AFF);
+  static final Color contentColor = Color(0xFF000000);
 }
 
 class StarkFiDark {
-  final Color primaryColor = Color(0xFF007AFF);
-  final Color contentColor = Color(0xFFFFFFFF);
+  static final Color primaryColor = Color(0xFF007AFF);
+  static final Color contentColor = Color(0xFFFFFFFF);
 }

@@ -12,72 +12,70 @@ class MainScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    //states
-    final isLogin = useState(false);
+    //futures
+    Future<void> checkLoginStatus() async {
+      final bool isLoggedIn = await GetData().getLogin();
+      if (context.mounted) {
+        if (isLoggedIn) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => CounterPage(title: "jd")),
+          );
+        }
+      }
+    }
 
     //effects
-    useEffect(
-      () async {
-            final bool? login = await GetData().getLogin();
-
-            isLogin.value = login != null ? false : true;
-            return null;
-          }
-          as Dispose? Function(),
-      [],
-    );
-
     useEffect(() {
-      if (isLogin.value) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CounterPage(title: "chuleta"),
-          ),
-        );
-      }
+      checkLoginStatus();
       return null;
-    }, [isLogin.value]);
+    }, []);
 
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Positioned.fill(
-          child: Expanded(
-            child: Image.asset("assets/main_image.png", fit: BoxFit.cover),
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned.fill(
+            child: Expanded(
+              child: Image.asset("assets/main_image.png", fit: BoxFit.cover),
+            ),
           ),
-        ),
 
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 8,
-          children: [
-            Text(
-              "Stark-Fi",
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: StarkFiTheme(context).contentColor,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 8,
+            children: [
+              Text(
+                "Stark-Fi",
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: StarkFiTheme(context).contentColor,
+                ),
               ),
-            ),
-            FilledButton(
-              onPressed: () {
-                SetData().setLogin();
-              },
-              child: Text("Caraotas"),
-            ),
-          ],
-        ),
-      ],
-    );
 
-    //       // Text(
-    //       //   "Staking. Simple, secure and decentralized.",
-    //       //   style: TextStyle(fontSize: 22),
-    //       //   textAlign: TextAlign.center,
-    //       // ),
-    //     ],
-    //   ),
-    // );
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                child: Text(
+                  "Efficient staking in Starknet, designed to maximize rewards and security.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: StarkFiTheme(context).contentColor,
+                  ),
+                ),
+              ),
+              FilledButton(
+                onPressed: () async {
+                  await SetData().setLogin(true);
+                  checkLoginStatus();
+                },
+                child: Text("dale"),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

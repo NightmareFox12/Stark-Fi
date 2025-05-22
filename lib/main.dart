@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:stark_fi/screens/main_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   SystemUiOverlayStyle(
+  //     statusBarColor: StarkFiDark.primaryColor,
+  //     statusBarIconBrightness: Brightness.light,
+  //   ),
+  // );
   runApp(const MainApp());
 }
 
@@ -10,8 +18,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(body: SafeArea(child: MainScreen())),
-    );
+    return MaterialApp(home: MainScreen());
   }
 }

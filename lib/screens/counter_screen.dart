@@ -1,3 +1,5 @@
+import 'package:stark_fi/screens/main_screen.dart';
+import 'package:stark_fi/sharedPreferences/set_data.dart';
 
 import '../services/counter_service.dart';
 import 'package:flutter/material.dart';
@@ -51,13 +53,9 @@ class _CounterPageState extends State<CounterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Text("Counter is  : $counter"),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             SizedBox(
               width: 500,
               child: TextField(
@@ -68,24 +66,36 @@ class _CounterPageState extends State<CounterPage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Wrap(
               alignment: WrapAlignment.center,
               spacing: 20,
               runSpacing: 10,
               children: [
                 ElevatedButton(
-                    onPressed: _increaseCount, child: const Text('increment')),
+                  onPressed: () async {
+                    await SetData().setLogin(false);
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainScreen()),
+                      );
+                    });
+                  },
+                  child: const Text('increment'),
+                ),
                 ElevatedButton(
-                    onPressed: _increaseCountBy,
-                    child: const Text('incrementBy')),
+                  onPressed: _increaseCountBy,
+                  child: const Text('incrementBy'),
+                ),
                 ElevatedButton(
-                    onPressed: (() => _getCounter()),
-                    child: const Text('get count')),
+                  onPressed: (() => _getCounter()),
+                  child: const Text('get count'),
+                ),
                 ElevatedButton(
-                    onPressed: _decreaseCount, child: const Text('decrement')),
+                  onPressed: _decreaseCount,
+                  child: const Text('decrement'),
+                ),
               ],
             ),
           ],
