@@ -1,4 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <queries>
+        <package android:name="app.braavos.wallet"/>
+        <package android:name="m.argent.contractwalletclient"/>
+    </queries>
+
     <application
         android:label="stark_fi"
         android:name="${applicationName}"
