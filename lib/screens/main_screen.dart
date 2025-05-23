@@ -27,6 +27,7 @@ class MainScreen extends HookWidget {
 
     //effects
     useEffect(() {
+      //Quitar esto para poner una password
       checkLoginStatus();
       return null;
     }, []);

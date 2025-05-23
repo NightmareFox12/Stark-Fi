@@ -6,10 +6,43 @@ class StakeScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(title: Text("Stake")),
-        body: Column(children: [Text("caraotas")]),
+    return DefaultTabController(
+      length: 2,
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  text: "Flexible",
+                  icon: Icon(Icons.access_alarm_rounded, size: 20),
+                ),
+
+                Tab(
+                  text: "Limit",
+                  icon: Icon(Icons.access_alarm_rounded, size: 20),
+                ),
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    BottomSheet(
+                      onClosing: () {},
+                      builder: (context) => Text("wey"),
+                    ),
+                  ],
+                ),
+              ),
+
+              Text("children tow"),
+            ],
+          ),
+        ),
       ),
     );
   }

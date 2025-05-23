@@ -3,18 +3,6 @@ import 'package:starknet_provider/starknet_provider.dart';
 
 
 
-//TODO: commands for ordens:
-
-// tarkli declare --watch --rpc http://localhost:5050 --account devnet-acct.json target/dev/stark_fi_Counter.contract_class.json 
-
-
-//starkli deploy --salt 0x42 --watch --rpc http://localhost:5050 --account devnet-acct.json 0x06fab271abff7b0c67d1c0a1b2e44ae5e7fe3c72a09f1bf0c0713f845f0c5a79
-
-//copiar la de inne sin /24
-// ip -4 a show wlp2s0 | grep "inet"
-//siempre 0.0.0.0 para que se conecte todo el mundo
-// starknet-devnet --seed 0 --port 5050 --host 0.0.0.0
-
 
 final uriParse = Uri.parse('http://192.168.0.171:5050');
 final provider = JsonRpcProvider(nodeUri: uriParse);
