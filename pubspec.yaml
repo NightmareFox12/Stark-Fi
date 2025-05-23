@@ -15,7 +15,8 @@ dependencies:
   flutter_hooks: ^0.21.2
   shared_preferences: ^2.5.3
   shared_preferences_android: ^2.4.10
-
+  fl_chart: ^1.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
