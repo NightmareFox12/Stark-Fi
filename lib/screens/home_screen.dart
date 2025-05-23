@@ -13,15 +13,25 @@ class HomeScreen extends HookWidget {
           title: Text("Home"),
           backgroundColor: StarkFiTheme(context).primaryColor,
         ),
-        body: Column(),
+        body: Column(children: [Text("Ganains")]),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: "Cafecito"),
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: "cafecito"),
-            BottomNavigationBarItem(icon: Icon(Icons.abc), label: "cafecito"),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+              tooltip: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.access_alarms),
+              label: "cafecito",
+            ),
+            BottomNavigationBarItem(
+              tooltip: "Home",
+              icon: Icon(Icons.zoom_in),
+              label: "cafecito",
+            ),
           ],
         ),
-        drawer: Drawer(child: Column(children: [DrawerButton()])),
       ),
     );
   }

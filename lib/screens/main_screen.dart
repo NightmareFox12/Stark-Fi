@@ -3,10 +3,8 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/components/image_background.dart';
-import 'package:stark_fi/screens/counter_screen.dart';
 import 'package:stark_fi/screens/home_screen.dart';
 import 'package:stark_fi/sharedPreferences/get_data.dart';
-import 'package:stark_fi/sharedPreferences/set_data.dart';
 import 'package:stark_fi/theme/stark_fi_theme.dart';
 
 class MainScreen extends HookWidget {

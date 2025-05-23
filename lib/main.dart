@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stark_fi/screens/main_screen.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   SystemUiOverlayStyle(
-  //     statusBarColor: Colors.black,
-  //     statusBarIconBrightness: Brightness.dark,
-  //     statusBarBrightness: Brightness.light,
-  //     systemNavigationBarIconBrightness: Brightness.light,
-  //   ),
-  // );
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(statusBarColor: Colors.white),
+  );
   runApp(const MainApp());
 }
 
