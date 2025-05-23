@@ -22,6 +22,8 @@ class StarkFiTheme {
 class StarkFiLight {
   static final Color primaryColor = Color(0xFF007AFF);
   static final Color contentColor = Color(0xFF000000);
+  static final Color background = Color(0xFF16171E);
+  
 }
 
 class StarkFiDark {

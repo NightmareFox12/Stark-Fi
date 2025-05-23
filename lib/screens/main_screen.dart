@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:stark_fi/components/image_background.dart';
 import 'package:stark_fi/screens/counter_screen.dart';
 import 'package:stark_fi/sharedPreferences/get_data.dart';
 import 'package:stark_fi/sharedPreferences/set_data.dart';
@@ -35,16 +36,18 @@ class MainScreen extends HookWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(
-            child: Expanded(
-              child: Image.asset("assets/main_image.png", fit: BoxFit.cover),
-            ),
-          ),
+          ImageBackground(),
 
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 8,
             children: [
+              SizedBox(
+                height: 180,
+                width: 180,
+                child: ClipOval(child: Image.asset("assets/logo.jpg")),
+              ),
+
               Text(
                 "Stark-Fi",
                 style: TextStyle(
