@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:stark_fi/screens/main_screen.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
   // SystemChrome.setSystemUIOverlayStyle(
   //   SystemUiOverlayStyle(
-  //     statusBarColor: StarkFiDark.primaryColor,
-  //     statusBarIconBrightness: Brightness.light,
+  //     statusBarColor: Colors.black,
+  //     statusBarIconBrightness: Brightness.dark,
+  //     statusBarBrightness: Brightness.light,
+  //     systemNavigationBarIconBrightness: Brightness.light,
   //   ),
   // );
   runApp(const MainApp());
