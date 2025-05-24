@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/screens/history_screen.dart';
-import 'package:stark_fi/screens/home_screen.dart';
+import 'package:stark_fi/screens/HomeScreen/home_screen.dart';
 import 'package:stark_fi/theme/stark_fi_theme.dart';
 
 class LayoutScreen extends HookWidget {
@@ -15,11 +15,15 @@ class LayoutScreen extends HookWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Home"),
+          title: Text(
+            "Home",
+            style: TextStyle(color: StarkFiTheme(context).contentColor),
+          ),
           backgroundColor: StarkFiTheme(context).primaryColor,
         ),
         body: [HomeScreen(), HistoryScreen()][currentPage.value],
         bottomNavigationBar: bottomBar(currentPage),
+        backgroundColor: StarkFiTheme(context).base100,
       ),
     );
   }

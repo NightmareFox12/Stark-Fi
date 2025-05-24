@@ -23,12 +23,15 @@ class CardBalance extends StatelessWidget {
                 ),
               )
             : Card(
-                surfaceTintColor: StarkFiTheme(context).primaryColor,
+                color: StarkFiTheme(context).primaryColor,
                 child: myBalanceStrk.hasError
                     ? Center(
                         child: Text(
                           "A connection error has occurred.",
-                          style: StarkTextStyles.textSemiBold,
+                          style: StarkTextStyles.textNormal(
+                            context: context,
+                            weight: FontWeight.w600,
+                          ),
                         ),
                       )
                     : Column(
@@ -37,9 +40,9 @@ class CardBalance extends StatelessWidget {
                         children: [
                           Text(
                             "Balance:",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                            style: StarkTextStyles.textNormal(
+                              context: context,
+                              weight: FontWeight.w600,
                             ),
                           ),
                           Row(
@@ -49,9 +52,10 @@ class CardBalance extends StatelessWidget {
                             children: [
                               Text(
                                 "${myBalanceStrk.data ?? 0} STRK",
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w600,
+                                style: StarkTextStyles.textNormal(
+                                  context: context,
+                                  size: 32,
+                                  weight: FontWeight.w600,
                                 ),
                               ),
                               Image.asset(

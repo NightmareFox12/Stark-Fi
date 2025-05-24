@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/screens/HomeScreen/components/card_balance.dart';
-import 'package:stark_fi/screens/stake_screen.dart';
+import 'package:stark_fi/screens/StakeScreen/stake_screen.dart';
 import 'package:stark_fi/services/strk_contract_service.dart';
 
 class HomeScreen extends HookWidget {
