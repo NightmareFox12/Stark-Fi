@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/theme/stark_fi_theme.dart';
+import 'package:stark_fi/utils/stark_text_styles.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class CardBalance extends StatelessWidget {
   final AsyncSnapshot myBalanceStrk;
@@ -12,43 +13,57 @@ class CardBalance extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: double.maxFinite,
-        child: Card(
-          surfaceTintColor: StarkFiTheme(context).primaryColor,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: myBalanceStrk.connectionState == ConnectionState.waiting
-                ? Center(child: CircularProgressIndicator())
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Amount disponible:",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Row(
+        height: 100,
+        child: myBalanceStrk.connectionState == ConnectionState.waiting
+            ? Card(
+                child: Shimmer(
+                  color: Colors.grey,
+                  colorOpacity: .6,
+                  child: Spacer(),
+                ),
+              )
+            : Card(
+                surfaceTintColor: StarkFiTheme(context).primaryColor,
+                child: myBalanceStrk.hasError
+                    ? Center(
+                        child: Text(
+                          "A connection error has occurred.",
+                          style: StarkTextStyles.textSemiBold,
+                        ),
+                      )
+                    : Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: 10,
                         children: [
                           Text(
-                            "${myBalanceStrk.data ?? 0} STRK",
+                            "Balance:",
                             style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Image.asset(
-                            "assets/strk_logo.png",
-                            width: 25,
-                            height: 25,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              Text(
+                                "${myBalanceStrk.data ?? 0} STRK",
+                                style: TextStyle(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Image.asset(
+                                "assets/strk_logo.png",
+                                width: 25,
+                                height: 25,
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
-          ),
-        ),
+              ),
       ),
     );
   }
