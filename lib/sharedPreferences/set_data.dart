@@ -13,4 +13,16 @@ class SetData {
       return false;
     }
   }
+
+  Future<bool> setShowStakingCard(bool show) async {
+    try {
+      final prefs = await ConfigData().getInstance();
+
+      prefs.setBool('showStaking', show);
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
 }
