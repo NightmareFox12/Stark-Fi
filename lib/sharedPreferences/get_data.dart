@@ -17,7 +17,7 @@ class GetData {
     try {
       final prefs = await ConfigData().getInstance();
 
-      return prefs.getBool('showStaking') ?? false;
+      return prefs.getBool('showStaking') ?? true;
     } catch (e) {
       debugPrint(e.toString());
       return false;

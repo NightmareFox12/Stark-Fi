@@ -29,7 +29,7 @@ class CardBalance extends StatelessWidget {
                     ? Center(
                         child: Text(
                           "A connection error has occurred.",
-                          style: StarkTextStyles.textNormal(
+                          style: StarkTextStyles.customText(
                             context: context,
                             weight: FontWeight.w600,
                           ),
@@ -41,7 +41,7 @@ class CardBalance extends StatelessWidget {
                         children: [
                           Text(
                             "Balance:",
-                            style: StarkTextStyles.textNormal(
+                            style: StarkTextStyles.customText(
                               context: context,
                               weight: FontWeight.w600,
                             ),
@@ -53,7 +53,7 @@ class CardBalance extends StatelessWidget {
                             children: [
                               Text(
                                 "${myBalanceStrk.data ?? 0} STRK",
-                                style: StarkTextStyles.textNormal(
+                                style: StarkTextStyles.customText(
                                   context: context,
                                   size: 32,
                                   weight: FontWeight.w600,

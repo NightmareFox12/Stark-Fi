@@ -52,7 +52,7 @@ class MainScreen extends HookWidget {
 
                 Text(
                   "Stark-Fi",
-                  style: StarkTextStyles.textNormal(
+                  style: StarkTextStyles.customText(
                     context: context,
                     size: 45,
                     weight: FontWeight.w600,
@@ -64,7 +64,7 @@ class MainScreen extends HookWidget {
                   child: Text(
                     "Efficient staking in Starknet, designed to maximize rewards and security.",
                     textAlign: TextAlign.center,
-                    style: StarkTextStyles.textNormal(
+                    style: StarkTextStyles.customText(
                       context: context,
                       weight: FontWeight.w600,
                     ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stark_fi/sharedPreferences/config_data.dart';
 
 class SetData {
-  Future<bool> setLogin(bool login) async {
+  static Future<bool> setLogin(bool login) async {
     try {
       final prefs = await ConfigData().getInstance();
 
@@ -14,7 +14,7 @@ class SetData {
     }
   }
 
-  Future<bool> setShowStakingCard(bool show) async {
+  static Future<bool> setShowStakingCard(bool show) async {
     try {
       final prefs = await ConfigData().getInstance();
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/screens/StakeScreen/components/staking_card.dart';
+import 'package:stark_fi/theme/stark_fi_theme.dart';
 
 class StakeScreen extends HookWidget {
   const StakeScreen({super.key});
@@ -14,6 +15,8 @@ class StakeScreen extends HookWidget {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            title: Text("Staking"),
+            backgroundColor: StarkFiTheme(context).primaryColor,
             bottom: TabBar(
               tabs: [
                 Tab(
@@ -32,7 +35,14 @@ class StakeScreen extends HookWidget {
             children: [
               Padding(
                 padding: EdgeInsetsGeometry.all(8),
-                child: Column(children: [StakingCard()]),
+                child: Column(
+                  children: [
+                    StakingCard(),
+                    Text("dios mio"),
+                    TextField(),
+                    FilledButton(onPressed: () {}, child: Text("press me")),
+                  ],
+                ),
               ),
               Text("children tow"),
             ],
