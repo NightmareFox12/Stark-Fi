@@ -16,8 +16,9 @@ class CardBalance extends StatelessWidget {
         height: 100,
         child: myBalanceStrk.connectionState == ConnectionState.waiting
             ? Card(
+                color: StarkFiTheme(context).primaryColor,
                 child: Shimmer(
-                  color: Colors.grey,
+                  color: Colors.white24,
                   colorOpacity: .6,
                   child: Spacer(),
                 ),

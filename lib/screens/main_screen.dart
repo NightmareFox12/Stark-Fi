@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stark_fi/components/image_background.dart';
 import 'package:stark_fi/screens/layout_screen.dart';
-import 'package:stark_fi/sharedPreferences/get_data.dart';
-import 'package:stark_fi/theme/stark_fi_theme.dart';
+// import 'package:stark_fi/sharedPreferences/get_data.dart';
+// import 'package:stark_fi/theme/stark_fi_theme.dart';
+import 'package:stark_fi/utils/stark_text_styles.dart';
 
 class MainScreen extends HookWidget {
   const MainScreen({super.key});
@@ -13,22 +14,22 @@ class MainScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     //futures
-    Future<void> checkLoginStatus() async {
-      final bool isLoggedIn = await GetData().getLogin();
-      if (context.mounted) {
-        if (isLoggedIn) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => LayoutScreen()),
-          );
-        }
-      }
-    }
+    // Future<void> checkLoginStatus() async {
+    //   final bool isLoggedIn = await GetData().getLogin();
+    //   if (context.mounted) {
+    //     if (isLoggedIn) {
+    //       Navigator.pushReplacement(
+    //         context,
+    //         MaterialPageRoute(builder: (context) => LayoutScreen()),
+    //       );
+    //     }
+    //   }
+    // }
 
     //effects
     useEffect(() {
       //Quitar esto para poner una password
-      checkLoginStatus();
+      // checkLoginStatus();
       return null;
     }, []);
 
@@ -51,10 +52,10 @@ class MainScreen extends HookWidget {
 
                 Text(
                   "Stark-Fi",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: StarkFiTheme(context).contentColor,
+                  style: StarkTextStyles.textNormal(
+                    context: context,
+                    size: 45,
+                    weight: FontWeight.w600,
                   ),
                 ),
 
@@ -63,10 +64,9 @@ class MainScreen extends HookWidget {
                   child: Text(
                     "Efficient staking in Starknet, designed to maximize rewards and security.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: StarkFiTheme(context).contentColor,
-                      fontWeight: FontWeight.w500,
+                    style: StarkTextStyles.textNormal(
+                      context: context,
+                      weight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -78,6 +78,12 @@ class MainScreen extends HookWidget {
                       onPressed: () async {
                         // await SetData().setLogin(true);
                         // checkLoginStatus();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LayoutScreen(),
+                          ),
+                        );
                       },
                       child: Text("Connect to Wallet"),
                     ),

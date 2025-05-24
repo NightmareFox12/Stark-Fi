@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stark_fi/utils/theme_utils.dart';
 
 //Debe estar un Stack padre
 class ImageBackground extends StatelessWidget {
@@ -10,11 +9,16 @@ class ImageBackground extends StatelessWidget {
     return Positioned.fill(
       child: Expanded(
         child: Image.asset(
-          isDarkMode(context)
-              ? "assets/background_image_dark.png"
-              : "assets/background_image_light.png",
+          "assets/background_image_light.png",
           fit: BoxFit.cover,
         ),
+
+        // child: Image.asset(
+        //   isDarkMode(context)
+        //       ? "assets/background_image_dark.png"
+        //       : "assets/background_image_light.png",
+        //   fit: BoxFit.cover,
+        // ),
       ),
     );
   }
